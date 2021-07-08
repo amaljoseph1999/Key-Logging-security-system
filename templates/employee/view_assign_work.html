@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% include "header.html" %}
+<body>
+<form action="" method="get">
+<table  class="table table-striped">
+  <tr>
+    <td width="30" height="90"><div align="center"><em>#</em></div></td>
+    <td width="244"><div align="center"><em>Work</em></div></td>
+   
+    <td width="124"><em>Date of Assign</em></td>
+    <td width="158"><div align="center"><em>Work Status</em></div></td>
+    <td width="158"><div align="center"></div></td>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>{{ loop.index}}&nbsp;</td>
+    <td>{{ i['w_work'] }}&nbsp;</td>
+    <td>&nbsp;{{ i['date'] }}</td>
+    <td>&nbsp;{{ i['w_status'] }}</td>
+      <td><p><a href="/send_feedback/{{ i['workid'] }}"><em><strong>Feedback</strong></em></a></p>
+      <p><a href="/send_workfile/{{ i['workid'] }}"><em><strong>Send Work FIles</strong></em></a></p></td>
+    </tr>{% endfor %}
+</table>
+
+
+{% include "footer.html" %}
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+{% include "adminheader.html" %}
+{% block body %}
+<body bgcolor="#CCCCCC">
+<strong>Add Empolyee : </strong><br />
+<br />
+<center><form action="/add_emp_post" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <p>&nbsp;</p>
+  <table class="table table-striped">
+    <tr>
+      <td>First Name:</td>
+      <td>
+        <label for="name"></label>
+      <input type="text" name="names" id="names" required="required" class="form-control"/></td>
+    </tr>
+    <tr>
+      <td height="47">Last Name:</td>
+      <td>
+        <label for="lastname"></label>
+        <input type="text" name="lastname" id="lastname" required="required" class="form-control" />        <label for="address"></label></td>
+    </tr>
+    <tr><td height="51">
+    Post:
+    </td>
+    <td>
+      <label for="posts"></label>
+      <input type="text" name="posts" id="posts" required="required" class="form-control" /></td></tr>
+    <tr><td height="45">
+    House:
+    </td>
+    <td>
+      <label for="house"></label>
+      <input type="text" name="house" id="house" required="required" class="form-control"/></td></tr>
+    <tr><td height="45">
+    Street:
+    </td>
+    <td>
+      <label for="street"></label>
+      <input type="text" name="street" id="street" required="required" class="form-control" /></td></tr>
+    <tr>
+      <td height="46">
+    Place:
+    </td>
+    <td>
+      <label for="place"></label>
+      <input type="text" name="place" id="place" required="required" class="form-control" /></td></tr>
+    <tr><td height="46">
+    District:
+    </td>
+    <td>
+      <label for="dis"></label>
+      <input type="text" name="dis" id="dis" required="required" class="form-control" /></td></tr>
+    <tr>
+    <td height="42">Pin Code:
+    </td>
+    <td>
+      <label for="pin"></label>
+      <input type="number" name="pin" id="pin" class="form-control" required="required" pattern="[0-9]{6}" />
+    </td>
+    </tr>
+    <tr>
+      <td height="41">Mobile: </td>
+      <td>
+        <label for="mob"></label>
+      <input type="tel" name="mob" id="mob" class="form-control" required="required" pattern="[6-9][0-9]{9}" /></td>
+    </tr>
+    <tr>
+      <td>Gender: </td>
+      <td><p><label>
+          <input type="checkbox" name="genter" id="male" value="M" checked/>
+          Male 
+        <br />
+        <label>
+        <input type="checkbox" name="genter" id="male" value="M"/>
+        Female</label>
+           <br />
+        <label>
+        <input type="checkbox" name="genter" id="male" value="M"/>
+        Other</label>
+        <br />
+      </p></td>
+    </tr>
+    <tr>
+      <td>DOB: </td>
+      <td>
+        <label for="date"></label>
+      <input type="date" name="date1" id="date1" class="form-control" required="required"/></td>
+    </tr>
+    <tr>
+      <td>Photo: </td>
+      <td>
+        <label for="image"></label>
+        <label for="image"></label>
+      <input type="file" name="image1" id="image1" class="form-control" required="required"/></td>
+    </tr>
+    <tr>
+      <td>Email: </td>
+      <td
+        <label for="email"></label>
+      <input type="email" name="email1" id="email1" class="form-control" required="required"/></td>
+    </tr>
+
+    <tr>
+      <td>Department: </td>
+      <td>
+           <select name="dept" class="form-control">
+      {% for i in data %}
+            <option value="{{ i['dept_id'] }}">{{ i['name'] }}</option>
+      {% endfor %}
+           </select>
+      </td>
+    </tr>
+    <tr align="center">
+    <td colspan="2"><input type="submit" name="add" id="add" value="Add" class="btn-primary" /></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+{% endblock %}
+{% include "footer.html" %}
+</form>
+</center>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+
+{% include "header.html" %}
+{% block body %}
+<form name="form1" enctype="multipart/form-data" method="post" action="">
+<table width="441" height="180" >
+  <tr>
+    <td width="107">Edit thework</td>
+    <td width="318">
+      <label for="work"></label>
+      <input type="file" name="work" id="work">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <div align="center">
+        <input type="submit" name="add" id="add" value="Edit">
+      </div>
+    </td>
+  </tr>
+</table>
+
+
+</form>
+{% endblock %}
+
+

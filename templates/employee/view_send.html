@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+{% include "header.html" %}
+<body>
+<table  class="table table-striped">
+  <tr>
+    <td width="13">#</td>
+    <td width="179"><div align="center">Filename</div></td>
+    <td width="97"><div align="center">Reciver</div></td>
+    <td width="183"><div align="center">Date</div></td>
+      <td></td>
+
+</tr>
+
+ {% for i in data %}
+     <tr>
+    <td>{{ loop.index }}&nbsp;</td>
+    <td>&nbsp;{{ i['ffile'] }}</td>
+    <td>&nbsp;{{ i['first_name'] }} &nbsp;{{ i['last_name'] }}</td>
+    <td>&nbsp;{{ i['fdate'] }}</td>
+    <td>&nbsp;<a href="/my_downfile/{{ i['ffile'] }}/{{ i['file_id'] }}">Download</a> </td>
+    
+  </tr>
+ {% endfor %}
+
+</table>
+</body>{% include "footer.html" %}
+</html>
+
+

@@ -1,0 +1,30 @@
+
+{% include "header.html" %}
+<form id="form3" name="form3" method="post" action="/send_comp_post">
+{##}
+{#<CENTER><B><I><p>#}
+{#<p>COMPLAINT SESSION</p>#}
+{#<p>&nbsp;</p>#}
+
+
+{#</I></B></CENTER>#}
+{#  <p><b><i>Your complaint : </i></b></p>#}
+
+<table align="center">
+    <caption>Complaint</caption>
+  <tr>
+    <td>
+      <label for="complaint"></label>
+      <textarea name="complaint" id="complaint" cols="50" rows="10"></textarea>
+    </td>
+  </tr>
+  <tr>
+    <td height="66">      <div align="center">
+        <input type="submit" name="send" id="send" value="Send" />
+      </div>
+    </td>
+  </tr>
+</table>
+<table align="center"><tr><td><a href="/view_comp1"><strong>Your complaints</strong></a></td></tr>
+</table>
+  {% include "footer.html" %}

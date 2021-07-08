@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% include "header.html" %}
+<body>
+<form name="form1" method="post" action="/send_feedback_post/{{ data }}">
+<p>Your feedback:</p>
+<table width="439" height="160" border="0">
+  <tr>
+    <td>
+      <label for="feedback"></label>
+      <label for="feedback2"></label>
+      <textarea name="feedback" id="feedback2" rows="10" cols="50"></textarea>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div align="center">
+        <input type="submit" name="Send" id="Send" value="Send">
+      </div>
+    </td>
+  </tr>
+</table>
+{% include "footer.html" %}
+</form></body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% include "header.html" %}
+<body>
+<form name="form2" enctype="multipart/form-data" method="post" action="/share_files">
+<table width="788" class="table table-striped">
+  <tr>
+    <td width="392" height="124">Select the file name that you want to share</td>
+    <td width="380">
+      <label for="work"></label>
+      <input type="file" name="work" id="work"  class="form-control" required="required">
+    </td>
+  </tr>
+  <tr>
+    <td height="75">Select the person</td>
+    <td>
+      <label for="employee"></label>
+      <select name="employee" id="employee"  class="form-control" required="required">
+          {% for i in data %}
+          <option value="{{ i['emp_id'] }}">{{ i['first_name'] }} {{ i['last_name'] }}</option>
+          {% endfor %}
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td height="60" colspan="2">
+      <div align="center">
+        <input type="submit" name="share" id="share" value="Submit">
+      </div>
+    </td>
+  </tr>
+</table>
+    {% include "footer.html" %}
+</form>
+</body>
+</html>

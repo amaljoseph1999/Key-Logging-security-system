@@ -1,0 +1,95 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<title>Cross-Browser QRCode generator for Javascript</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+<script type="text/javascript" src="../static/jquery.min.js"></script>
+<script type="text/javascript" src="../static/qrcode.js"></script>
+</head>
+<body>
+
+<form method="post" action="/checks">
+<input id="text" type="hidden" value="{{ data }}" style="width:80%" /><br />
+<div align="center">
+<div id="qrcode" style="width:200px; height:200px; margin-top:15px;" ></div>
+
+<script type="text/javascript">
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+	width : 200,
+	height : 200
+});
+
+function makeCode () {
+	var elText = document.getElementById("text");
+	if (!elText.value) {
+		alert("Input a text");
+		elText.focus();
+		return;
+	}
+	qrcode.makeCode(elText.value);
+}
+
+makeCode();
+
+$("#text").
+	on("blur", function () {
+		makeCode();
+	}).
+	on("keydown", function (e) {
+		if (e.keyCode == 13) {
+			makeCode();
+		}
+	});
+</script>
+
+<p>&nbsp;</p>
+    <table  height="131"  id="t2" border="1">
+        {% for i in range(0,6) %}
+            <tr>
+           {% for j in range(0,6) %}
+                <td><input type="button" name="button" id="button" value="{{ (i*6)+j }}" style="color: red;width: 70px;height: 40px" onclick="setval({{ (i*6)+j }})" class="btn form-control"/></td>
+           {% endfor %}
+            </tr>
+        {% endfor %}
+      </table>
+<p>&nbsp;</p>
+<table>
+    <tr>
+        <td>
+            <input type="password" name="hd" id="hd">
+            <input type="submit" name="down" id="down" value="   VERIFY   "/>
+        </td>
+    </tr>
+</table>
+</div>
+</form>
+
+<script>
+    function setval(val)
+    {
+        x = document.getElementById("hd").value;
+        if (x == "") {
+            document.getElementById("hd").value=val;
+        }
+        else {
+            var c = document.getElementById("hd").value ;
+            var a = c.split("#");
+            if(a.length==6) {
+                document.getElementById("down").style.visibility="visible";
+            }
+            else {
+                document.getElementById("hd").value = document.getElementById("hd").value + "#" + val;
+                document.getElementById("down").style.visibility="hidden";
+                var cc = document.getElementById("hd").value ;
+                var aa = cc.split("#");
+                if(aa.length==6) {
+                    document.getElementById("down").style.visibility="visible";
+                }
+            }
+        }
+    }
+</script>
+
+</div>
+</body>
+</html>

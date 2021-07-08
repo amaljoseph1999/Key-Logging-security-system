@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% include "header.html" %}
+<body>
+<form name="form1" method="post" action="/leave_request_post">
+<h3><strong><em>Leave request:</em></strong></h3>
+<table width="584" height="267" border="0" align="center" class="table table-striped">
+  <tr>
+    <td width="157" height="69">Date:</td>
+    <td width="411">
+      <label for="date"></label>
+      <input type="date" name="date" id="date" class="form-control" required="required" >
+    </td>
+  </tr>
+  <tr>
+    <td height="103">Reason for leave:</td>
+    <td>
+      <label for="reason"></label>
+      <textarea name="reason" id="reason" cols="50" class="form-control" required="required"></textarea>
+    </td>
+  </tr>
+
+</table>
+    <center>
+<p><em><strong></strong></em></p>
+
+  <input type="submit" name="send" id="send" value="Send">
+
+ </center>
+    {% include "footer.html" %}
+</form></body>
+</html>

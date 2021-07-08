@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>{% include "depheader.html" %}
+<table width="469" height="127" border="0" class="table table-striped">
+  <tr>
+    <td width="81">#</td>
+    <td width="199">Work</td>
+    <td width="167">&nbsp;</td>
+  </tr>
+      {% for i in data %}
+  <tr>
+    <td> {{ loop.index }}&nbsp;</td>
+    <td>&nbsp;{{ i['w_work'] }}</td>
+    <td><p><a href="/work_assign/{{ i['workid'] }}">assign work</a></p>
+    <p><a href="/dep_status">status</a></p></td>
+  </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

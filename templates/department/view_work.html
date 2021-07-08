@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>{% include "depheader.html" %}
+<center>
+<form id="form1" name="form1" method="post" action="/view_work_emp">
+  <table width="352" height="164" >
+    <tr>
+      <td width="183" height="103">Select the Employe:</td>
+      <td width="153">
+
+          <select name="emp" id="emp" class="form-control">
+              {% for j in data1 %}
+              <option value="{{ j['emp_id'] }}" >{{ j['first_name'] }} {{ j['last_name'] }}</option>
+              {% endfor %}
+          </select>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="sub" id="sub" value="Enter" />
+      </div></td>
+    </tr>
+  </table>
+  <p align="center">&nbsp;</p>
+{% if data %}
+  <table  class="table table-striped">
+  <tr>
+    <td width="30" height="63">#</td>
+    <td width="114"><div align="center">Date</div></td>
+    <td width="255"><div align="center">Work</div></td>
+    <td width="30" height="63">&nbsp;</td>
+  </tr>
+      {% for i in data %}
+  <tr>
+    <td height="54">&nbsp;{{ loop.index }}</td>
+    <td>&nbsp;{{ i['ffile'] }}</td>
+    <td>&nbsp;{{ i['fdate'] }}</td>
+    <td><a href="/rec_downfile1/{{ i['ffile'] }}/{{ i['file_id'] }}">Download</a></td>
+  </tr>
+      {% endfor %}
+</table>
+{% endif %}
+  <label for="emp"></label>
+</form>
+</center>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>{% include "depheader.html" %}
+<table width="732" border="0" class="table table-striped">
+  <tr>
+    <td width="52">#</td>
+    <td width="121">Emp Name</td>
+    <td width="168">Date</td>
+    <td width="163">Reason</td>
+    <td width="194">&nbsp;</td>
+  </tr>
+        {% for i in data %}
+  <tr>
+
+    <td>{{ loop.index }}&nbsp;</td>
+    <td>{{ i['first_name'] }}.{{ i['last_name'] }}</td>
+    <td>&nbsp;{{ i['ldate'] }}</td>
+    <td>&nbsp;{{ i['lreason'] }}</td>
+    <td><p><a href="/leave_approve/{{ i['emp_id'] }}">Approve</a></p>
+    <p><a href="/leave_reject/{{ i['emp_id'] }}">Reject</a></p></td>
+  </tr>
+    {% endfor %}
+</table>
+
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    
+</head>
+{% include "header.html" %}
+<body>
+ <form name="form1" method="post" action="/check_in">
+<center>
+<table width="645" >
+  <tr>
+    <td width="202" height="69">Name:</td>
+    <td width="276">{{ i['first_name'] }}.{{ i['last_name'] }}&nbsp;
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+    <td height="41">DOB</td><td>&nbsp;{{ i['DOB'] }}
+    <td width="151" rowspan="3"><img src="{{ i['photo'] }}" width="88" height="107"/></td>
+  </tr>
+  <tr>
+    <td height="54">Email:</td>
+    <td>&nbsp;{{ i['email'] }}</td>
+    </tr>
+  <tr>
+    <td height="46">Department</td>
+    <td>&nbsp;{{ i['name'] }}</td>
+    
+  </tr>
+  <tr>
+    <td height="43">Address</td>
+    <td>{{ i['house'] }}<br>{{ i['post'] }}<br>{{ i['street'] }}<br>{{ i['place'] }}</td>
+  </tr>
+     <tr>
+    <td height="51">District</td>
+    <td>&nbsp;{{ i['district'] }}</td>
+  </tr>
+  <tr>
+    <td height="51">Pin Code</td>
+    <td>&nbsp;{{ i['pin_code'] }}</td>
+  </tr>
+
+</table>
+
+
+<table width="606">
+  <tr align="center">
+      <br>
+      <br>
+      <br>
+      <br>
+    <td width="354"><div align="left">Mark Attendance :</div></td>
+    <td width="240">
+      </td>
+  </tr>
+  <tr>
+    <td height="97"><p>&nbsp;</p>
+
+
+        <input type="submit" name="checkin1" id="checkin" value="CheckIn">
+
+      <p>&nbsp;</p></td>
+    <td>
+      <input type="submit" name="checkin1" id="checkout" value="CheckOut">
+    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+
+</center>
+</center>
+ </form>
+</body>
+{% include "footer.html" %}
+</html>

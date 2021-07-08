@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% include "header.html" %}
+<body>
+<center>
+<form name="form1" method="post" action="/work_status_post">
+<p>&nbsp;</p>
+
+
+<table width="436" border="0" class="table table-striped">
+  <tr>
+    <td width="176" height="61">Select your work:</td>
+    <td width="244">
+      <label for="work"></label>
+      <select name="work" id="work"  class="form-control" required="required">
+          {% for i in data %}
+          <option value={{ i['id'] }}>{{ i['nm']}}</option>
+          {% endfor %}
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td height="56">Status:</td>
+    <td><input type="text" name="status" id="status"  class="form-control" required="required"></td>
+  </tr>
+  <tr>
+    <td height="56" colspan="2">
+          <label for="status"></label>
+      <div align="center">
+        <input type="submit" name="Send" id="Send" value="Send">
+      </div>
+    </td>
+  </tr>
+</table>
+    {% include "footer.html" %}
+<p>&nbsp;</p> 
+</form>
+</center>
+</body>
+</html>
